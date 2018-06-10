@@ -27,9 +27,13 @@ def get_url():
             responses = response.content.decode('utf-8')
             # print(responses)
             if response.status_code == 200:
-                data = re.findall(r'图模(.*)<ul class="fourtab threetab">', responses,re.S | re.M)
-                print(data)
-
+                # data = re.findall(r'图模(.*)<ul class="fourtab threetab">', responses, re.S)
+                # # print(data)
+                # data = re.findall(r'<img data-src="(.*)\"',str(data).replace('\\r','').replace('\\n','').replace('\\',''))
+                # data = re.findall(r'(.*),',str(str(data).split()))
+                # print(data[0])
+                data = re.findall(r'<img data-src=(.*)', responses)
+                print(data[30:37])
 
 
 if __name__ == '__main__':
